@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "sub": "server",
+  "scripts": {
+    "build": "rm -Rf ../../build/server && NODE_ENV=production yarn build-webpack",
+    "build-dev": "rm -Rf ../../build/server && PACKAGE_NAME=$npm_package_name yarn d:webpack",
+    "build-webpack": "PACKAGE_NAME=$npm_package_name yarn g:webpack",
+    "analyze-webpack": "PACKAGE_NAME=$npm_package_name yarn a:webpack"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.6.0",
+    "@emotion/react": "^11.6.0",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.6.0",
+    "@loadable/component": "5.15.0",
+    "@loadable/server": "^5.15.1",
+    "@mui/icons-material": "^5.2.0",
+    "@mui/material": "^5.2.0",
+    "core-js": "^3.19.1",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

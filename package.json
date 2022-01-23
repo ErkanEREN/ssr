@@ -1,0 +1,18 @@
+{
+  "name": "reaxpresst",
+  "packageManager": "yarn@3.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "common"
+  ],
+  "scripts": {
+    "build": "(rm -Rf ./build || 1) && yarn workspaces foreach -pti run build",
+    "start": "NODE_ENV=production yarn node build/server/server-bundle-*.js",
+    "build:dev": "yarn exec 'FORCE_COLOR=true yarn workspaces foreach -ivp --exclude common run build-dev'",
+    "start:dev": "NODE_ENV=development node build/server/server-bundle.js",
+    "analyze": "(rm -Rf ./build || 1) && NODE_ENV=development yarn workspaces foreach -pti run -T analyze-webpack",
+    "analyze:server": "yarn dlx webpack-bundle-analyzer common/server.json",
+    "analyze:client": "yarn dlx webpack-bundle-analyzer common/client.json"
+  }
+}
