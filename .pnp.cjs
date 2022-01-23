@@ -4238,7 +4238,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@loadable/component", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:5.15.0"],
             ["@mui/icons-material", "virtual:658502eb4296e93abedc18b6aa9b26978f434f08d98e21ebb0e725354b8bb54b62db9c4a1893e460c694ff7500ff5cbafa4457b0dfd26b5838868666c861e990#npm:5.2.0"],
             ["@mui/material", "virtual:658502eb4296e93abedc18b6aa9b26978f434f08d98e21ebb0e725354b8bb54b62db9c4a1893e460c694ff7500ff5cbafa4457b0dfd26b5838868666c861e990#npm:5.2.0"],
-            ["@workspace/common", "workspace:common"],
             ["core-js", "npm:3.19.1"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:17.0.2"]
@@ -7339,7 +7338,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@loadable/server", "virtual:2499dbb93d824027565d71b0716c4fb8b548ad61955d0a0286bfb3c5b4058e227894b6691d96808c00f576db14870018375210362c26ee321ea99fd6ed041c74#npm:5.15.1"],
             ["@mui/icons-material", "virtual:658502eb4296e93abedc18b6aa9b26978f434f08d98e21ebb0e725354b8bb54b62db9c4a1893e460c694ff7500ff5cbafa4457b0dfd26b5838868666c861e990#npm:5.2.0"],
             ["@mui/material", "virtual:658502eb4296e93abedc18b6aa9b26978f434f08d98e21ebb0e725354b8bb54b62db9c4a1893e460c694ff7500ff5cbafa4457b0dfd26b5838868666c861e990#npm:5.2.0"],
-            ["@workspace/common", "workspace:common"],
             ["core-js", "npm:3.19.1"],
             ["express", "npm:4.17.1"],
             ["react", "npm:17.0.2"],

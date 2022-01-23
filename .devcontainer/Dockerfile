@@ -2,6 +2,8 @@
 ARG VARIANT=16-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 
+COPY .. .
+
 # Install MongoDB command line tools if on buster and x86_64 (arm64 not supported)
 ARG MONGO_TOOLS_VERSION=5.0
 RUN . /etc/os-release \
@@ -12,7 +14,7 @@ RUN . /etc/os-release \
         && apt-get install -y mongodb-database-tools mongodb-mongosh \
         && apt-get clean -y && rm -rf /var/lib/apt/lists/*; \
     fi
-
+RUN yarn
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>

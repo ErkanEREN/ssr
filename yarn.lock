@@ -2585,7 +2585,6 @@ __metadata:
     "@loadable/component": 5.15.0
     "@mui/icons-material": ^5.2.0
     "@mui/material": ^5.2.0
-    "@workspace/common": "workspace:common"
     core-js: ^3.19.1
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -5234,7 +5233,6 @@ __metadata:
     "@loadable/server": ^5.15.1
     "@mui/icons-material": ^5.2.0
     "@mui/material": ^5.2.0
-    "@workspace/common": "workspace:common"
     core-js: ^3.19.1
     express: ^4.17.1
     react: ^17.0.2
