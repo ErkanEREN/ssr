@@ -1,8 +1,5 @@
 version: '3.8'
 
-x-global-env: &global-env
-  MONGO_DATABASE: "${MONGO_INITDB_DATABASE:-reaxpresst}"
-
 services:
   app:
     build: 
@@ -14,11 +11,10 @@ services:
         # Use -bullseye variants on local arm64/Apple Silicon.
         VARIANT: 16
     environment:
-      <<: *global-env
+      MONGO_DATABASE: "${MONGO_INITDB_DATABASE:-reaxpresst}"
+      MONGO_USERNAME: "${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}"
+      MONGO_PASSWORD: "${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}"
 
-    secrets:
-      - mongodb_password
-      - mongodb_username
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
@@ -35,17 +31,12 @@ services:
     image: mongo:latest
     restart: unless-stopped
     environment:
-      <<: *global-env
+      MONGO_DATABASE: "${MONGO_INITDB_DATABASE:-reaxpresst}"
+      MONGO_USERNAME: "${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}"
+      MONGO_PASSWORD: "${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}"
       MONGO_INITDB_DATABASE:  "${MONGO_INITDB_DATABASE:-admin}"
-      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/mongodb_root_password
-      MONGO_INITDB_ROOT_USERNAME_FILE: /run/secrets/mongodb_root_username
-      MONGO_USERNAME_FILE: /run/secrets/mongodb_username
-      MONGO_PASSWORD_FILE: /run/secrets/mongodb_password
-    secrets:
-      - mongodb_root_password
-      - mongodb_root_username
-      - mongodb_password
-      - mongodb_username
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_INITDB_ROOT_PASSWORD:-DEFAULT_MONGO_INITDB_ROOT_PASSWORD}"
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_INITDB_ROOT_USERNAME:-DEFAULT_MONGO_INITDB_ROOT_USERNAME}"
     volumes:
       - mongodb-data:/data/db
 
@@ -57,20 +48,5 @@ services:
 
     # Add "forwardPorts": ["27017"] to **devcontainer.json** to forward MongoDB locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
-secrets:
-  mongodb_root_password:
-    external: true
-    name: "${MONGODB_ROOT_PASSWORD:-SUPERSECRET_MONGODB_ROOT_PASSWORD}"
-  mongodb_root_username:
-    external: true
-    name: "${MONGODB_ROOT_USERNAME:-SUPERSECRET_MONGODB_ROOT_USERNAME}"
-  mongodb_password:
-    external: true
-    name: "${MONGODB_PASSWORD:-SUPERSECRET_MONGODB_PASSWORD}"
-  mongodb_username:
-    external: true
-    name: "${MONGODB_USERNAME:-SUPERSECRET_MONGODB_USERNAME}"
-
-
 volumes:
   mongodb-data:
