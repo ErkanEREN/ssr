@@ -3940,8 +3940,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-dom", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:17.0.2"],
             ["webpack", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:5.67.0"],
             ["webpack-cli", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:4.9.1"],
-            ["webpack-dev-middleware", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:5.3.0"],
-            ["webpack-node-externals", "npm:3.0.0"]
+            ["webpack-dev-middleware", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:5.3.0"]
           ],
           "linkType": "SOFT",
         }]
@@ -4568,6 +4567,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@loadable/component", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:5.15.2"],
             ["@mui/icons-material", "virtual:658502eb4296e93abedc18b6aa9b26978f434f08d98e21ebb0e725354b8bb54b62db9c4a1893e460c694ff7500ff5cbafa4457b0dfd26b5838868666c861e990#npm:5.3.0"],
             ["@mui/material", "virtual:658502eb4296e93abedc18b6aa9b26978f434f08d98e21ebb0e725354b8bb54b62db9c4a1893e460c694ff7500ff5cbafa4457b0dfd26b5838868666c861e990#npm:5.3.0"],
+            ["@workspace/common", "workspace:common"],
             ["core-js", "npm:3.20.3"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:17.0.2"]
@@ -8362,15 +8362,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["webpack-merge", "npm:5.8.0"],
             ["clone-deep", "npm:4.0.1"],
             ["wildcard", "npm:2.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["webpack-node-externals", [
-        ["npm:3.0.0", {
-          "packageLocation": "./.yarn/cache/webpack-node-externals-npm-3.0.0-72d3aecadb-355080c35c.zip/node_modules/webpack-node-externals/",
-          "packageDependencies": [
-            ["webpack-node-externals", "npm:3.0.0"]
           ],
           "linkType": "HARD",
         }]

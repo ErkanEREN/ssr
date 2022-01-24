@@ -2,9 +2,6 @@
 const path = require('path')
 const LoadablePlugin = require('@loadable/webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const deps = require('../packages/client/package.json').dependencies;
-const nodeExternals = require('webpack-node-externals')
 
 const getConfig = env => {
   const production = env.production
@@ -26,8 +23,6 @@ const getConfig = env => {
               babelrc: false,
               comments: true,
               presets: [
-                // '@babel/preset-typescript',
-                // '@babel/preset-react',
                 [
                   "@babel/preset-react", {
                   }
@@ -60,33 +55,8 @@ const getConfig = env => {
         },
       ],
     },
-    // externals: development? ['@loadable/component', nodeExternals(), '@workspace/common', "react", "react-dom"] : undefined,
     optimization: {
-      // runtimeChunk: false,
       usedExports: true,
-      // splitChunks: {
-      //   chunks: 'async',
-      //   minSize: 20000,
-      //   minChunks: 1,
-      //   maxAsyncRequests: 30,
-      //   maxInitialRequests: 30,
-      //   minSizeReduction: 200000,
-      //   maxAsyncSize: 244000,
-      //   enforceSizeThreshold: 150000,
-      //   // cacheGroups: {
-      //   //   defaultVendors: {
-      //   //     name: 'defaultVendors',
-      //   //     test: /.*(([\\/]node_modules[\\/])|\.yarn)/,
-      //   //     priority: -10,
-      //   //     reuseExistingChunk: true,
-      //   //   },
-      //   //   main: {
-      //   //     name: 'main',
-      //   //     test: /.*(([mM]+ain.*)|App)\.js/,
-      //   //     priority: 5,
-      //   //   }
-      //   // },
-      // }
     },
 
     resolve: {

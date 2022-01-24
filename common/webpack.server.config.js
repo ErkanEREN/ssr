@@ -3,7 +3,6 @@ const LoadablePlugin = require('@loadable/webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const deps = require('../packages/server/package.json').dependencies;
-const nodeExternals = require('webpack-node-externals')
 
 module.exports = env => {
   const production = env.production
@@ -65,25 +64,15 @@ module.exports = env => {
         },
       ],
     },
-    // externals:development? ['@loadable/component', nodeExternals(), 'express', '@workspace/common'] : [nodeExternals()],
+    ignoreWarnings: [
+      {
+        //bundle express but do not show the warning
+        module: /.*express\/lib\/view\.js.*/,
+        message: /Critical dependency: the request of a dependency is an expression/,
+      },
+    ],
     optimization: {
-      // usedExports: true,
-      // minimize: false,
-      // splitChunks: {
-      //   // cacheGroups: {
-      //   //   vendor: {
-      //   //     test: /.*(([\\/]node_modules[\\/])|\.yarn)/,
-      //   //     name: 'vendors',
-      //   //     priority: -20,
-      //   //     chunks: 'all'
-      //   //   },
-      //   //   main: {
-      //   //     name: 'main',
-      //   //     test: /.*(([mM]+ain.*)|App)\.js/,
-      //   //     priority: 5,
-      //   //   }
-      //   // }
-      // },
+      usedExports: true,
     },
 
     resolve: {
@@ -116,8 +105,6 @@ module.exports = env => {
         Server: path.join('..','..','build','server','remoteEntry.js'),
       },
       shared: {
-        // ...deps,
-        // 'express': { requiredVersion: deps['express'],eager: true, singleton: true },
         'react': { requiredVersion: deps['react'], singleton: true, eager:true },
         'react-dom': { requiredVersion: deps['react-dom'], singleton: true, eager:true },
         '@mui/material': { requiredVersion: deps['@mui/material'], singleton: true, eager:true },
