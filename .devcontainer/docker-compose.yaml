@@ -3,15 +3,15 @@ version: '3.8'
 services:
   app:
     build: 
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
       args:
         # Update 'VARIANT' to pick an LTS version of Node.js: 16, 14, 12.
         # Append -bullseye or -buster to pin to an OS version.
         # Use -bullseye variants on local arm64/Apple Silicon.
         VARIANT: 16
     environment:
-      MONGO_DATABASE: ${MONGO_INITDB_DATABASE:-reaxpresst}
+      MONGO_DATABASE: ${MONGO_DATABASE:-reaxpresst}
       MONGO_USERNAME: ${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}
       MONGO_PASSWORD: ${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}
 
@@ -31,14 +31,15 @@ services:
     image: mongo:latest
     restart: unless-stopped
     environment:
-      MONGO_DATABASE: ${MONGO_INITDB_DATABASE:-reaxpresst}
+      MONGO_DATABASE: ${MONGO_DATABASE:-reaxpresst}
       MONGO_USERNAME: ${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}
       MONGO_PASSWORD: ${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}
-      MONGO_INITDB_DATABASE:  ${MONGO_INITDB_DATABASE:-admin}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-DEFAULT_MONGO_INITDB_ROOT_PASSWORD}
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-DEFAULT_MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-reaxpresst}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-DEFAULT_MONGO_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-DEFAULT_MONGO_USERNAME}
     volumes:
       - mongodb-data:/data/db
+      - ./dbInit:/docker-entrypoint-initdb.d
     command: [--auth]
 
     # Uncomment to change startup options
