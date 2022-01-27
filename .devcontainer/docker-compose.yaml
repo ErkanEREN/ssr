@@ -11,9 +11,8 @@ services:
         # Use -bullseye variants on local arm64/Apple Silicon.
         VARIANT: 16
     environment:
-      MONGO_DATABASE: ${MONGO_DATABASE:-reaxpresst}
-      MONGO_USERNAME: ${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}
-      MONGO_PASSWORD: ${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}
+      PORT: 9000
+      MONGO_CONNECTION_STRING: mongodb://${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}:${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}@localhost:27017/${MONGO_DATABASE:-reaxpresst}?authSource=admin&authMechanism=SCRAM-SHA-256&readPreference=primary&ssl=false
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
