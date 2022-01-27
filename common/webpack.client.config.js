@@ -37,6 +37,24 @@ const getConfig = env => {
                 ],
               ],
               plugins: [
+                [
+                  'babel-plugin-import',
+                  {
+                    libraryName: '@mui/material',
+                    libraryDirectory: '',
+                    camel2DashComponentName: false,
+                  },
+                  'core',
+                ],
+                [
+                  'babel-plugin-import',
+                  {
+                    libraryName: '@mui/icons-material',
+                    libraryDirectory: '',
+                    camel2DashComponentName: false,
+                  },
+                  'icons',
+                ],
                 '@babel/plugin-proposal-class-properties',
                 '@babel/plugin-syntax-dynamic-import',
                 '@loadable/babel-plugin',

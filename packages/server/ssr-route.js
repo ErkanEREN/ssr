@@ -4,6 +4,7 @@ import createEmotionServer from '@emotion/server/create-instance';
 import { ChunkExtractor } from '@loadable/server'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import { CssBaseline } from "@mui/material";
+import path from 'path'
 import React from "react";
 import ReactDomServer from 'react-dom/server'
 import App from 'Server/Remote/App'

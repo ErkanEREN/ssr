@@ -5,5 +5,5 @@ import ssrRoute from './ssr-route';
 const app = express()
 app.use('/public', express.static(path.join(__dirname, '../../build/public')))
 app.use(ssrRoute)
-const port = proccess.env.PORT || 9000
+const port = process.env.PORT || 9000
 app.listen(port, () => console.log(`Server is running on port: ${port}`));

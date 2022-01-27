@@ -3961,6 +3961,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@loadable/webpack-plugin", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:5.15.2"],
             ["@mui/material", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:5.3.1"],
             ["babel-loader", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:8.2.3"],
+            ["babel-plugin-import", "npm:1.13.3"],
             ["css-loader", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:6.5.1"],
             ["mini-css-extract-plugin", "virtual:3703ce748ece86240e32b1bb979bd7fe9251fa70db1158922591fb9813455ce1a017c0033b6789c3c92e7d3d8cf541a6b830f5f131b5f05740dfbdcb77c56736#npm:2.5.3"],
             ["react", "npm:17.0.2"],
@@ -4257,6 +4258,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["babel-plugin-dynamic-import-node", "npm:2.3.3"],
             ["object.assign", "npm:4.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["babel-plugin-import", [
+        ["npm:1.13.3", {
+          "packageLocation": "./.yarn/cache/babel-plugin-import-npm-1.13.3-498736f60a-1be664a34f.zip/node_modules/babel-plugin-import/",
+          "packageDependencies": [
+            ["babel-plugin-import", "npm:1.13.3"],
+            ["@babel/helper-module-imports", "npm:7.16.7"],
+            ["@babel/runtime", "npm:7.16.7"]
           ],
           "linkType": "HARD",
         }]
