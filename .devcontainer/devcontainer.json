@@ -1,29 +1,40 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.205.1/containers/javascript-node-mongo
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/javascript-node-mongo
 // Update the VARIANT arg in docker-compose.yml to pick a Node.js version
 {
-	"name": "Mongo-Express-React-Node-Typescript",
-	"dockerComposeFile": "docker-compose.yaml",
-	"service": "app",
-	"workspaceFolder": "/workspaces",
+	"name": "ErkanEREN/ssr",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "ssr-server",
+	"runServices": [ "db" ],
+	"workspaceFolder": "/workspace",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": {},
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"arcanis.vscode-zipfs",
-		"dbaeumer.vscode-eslint",
-		"mongodb.mongodb-vscode" 
-	],
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"arcanis.vscode-zipfs",
+				"dbaeumer.vscode-eslint",
+				"mongodb.mongodb-vscode" 
+			]
+		}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [3000, 27017],
-	"forwardPorts": [9000],
-
+	"forwardPorts": [ "9000:80" ],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node",
+	"portsAttributes": {
+		"80": {
+			"label": "ssr.cydonia-docker-desktop:80:localhost:9000"
+		},
+		"ssr-server:9000": {
+			"label": "App server"
+		}
+	}
 }
