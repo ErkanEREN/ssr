@@ -31,7 +31,7 @@ services:
 
     container_name: ssr-server
     ports:
-      - "80:9000"
+      - "8080:9000"
     hostname: ssr-server
 
   db:

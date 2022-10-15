@@ -23,15 +23,15 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [3000, 27017],
-	"forwardPorts": [ "9000:80" ],
+	"forwardPorts": [ "9000:8080" ],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node",
 	"portsAttributes": {
-		"80": {
-			"label": "ssr.cydonia-docker-desktop:80:localhost:9000"
+		"8080": {
+			"label": "ssr.cydonia-docker-desktop:8080:localhost:9000"
 		},
 		"ssr-server:9000": {
 			"label": "App server"
