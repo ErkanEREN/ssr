@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  ssr-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Update 'VARIANT' to pick an LTS version of Node.js: 18, 16, 14.
+        # Append -bullseye or -buster to pin to an OS version.
+        # Use -bullseye variants on local arm64/Apple Silicon.
+        VARIANT: 18-bullseye
+
+    environment:
+      PORT: ${DEFAULT_PORT:-9000}
+      MONGO_CONNECTION_STRING: mongodb://${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}:${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}@ssr-db:27017/${MONGO_DATABASE:-reaxpresst}?authSource=admin&authMechanism=SCRAM-SHA-256&readPreference=primary&ssl=false
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+    # command: yarn && yarn build:dev
+
+    # Uncomment the next line to use a non-root user for all processes.
+    user: node
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+    # ports: 
+    #   - localhost:9000:ssr.lemur-tortoise.ts.net:80
+
+    container_name: ssr-server
+    hostname: ssr-server
+    domainname: ssr-server
+    ports:
+      - 9000
+
+  db:
+    image: mongo:latest
+    restart: unless-stopped
+    environment:
+      MONGO_DATABASE: ${MONGO_DATABASE:-reaxpresst}
+      MONGO_USERNAME: ${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}
+      MONGO_PASSWORD: ${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-reaxpresst}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-DEFAULT_MONGO_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-DEFAULT_MONGO_USERNAME}
+    volumes:
+      - mongodb-data:/data/db
+      - ./dbInit:/docker-entrypoint-initdb.d
+    command: [--auth]
+    container_name: ssr-db
+    hostname: ssr-db
+    domainname: ssr-db
+
+    # Uncomment to change startup options
+    # environment:
+    #  MONGO_INITDB_ROOT_USERNAME: root
+    #  MONGO_INITDB_ROOT_PASSWORD: example
+    #  MONGO_INITDB_DATABASE: your-database-here
+
+    # Add "forwardPorts": ["27017"] to **devcontainer.json** to forward MongoDB locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+volumes:
+  mongodb-data: null
