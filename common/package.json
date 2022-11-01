@@ -26,7 +26,8 @@
     "css-loader": "^6.5.1",
     "mini-css-extract-plugin": "^2.5.3",
     "webpack": "^5.67.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
     "babel-plugin-import": "^1.13.3",
