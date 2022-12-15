@@ -1,0 +1,136 @@
+{
+    "hash": "96c8c23c8755c13793db",
+    "version": "5.67.0",
+    "time": 231,
+    "builtAt": 1667256401184,
+    "publicPath": "auto",
+    "outputPath": "/workspaces/ssr/common/dist",
+    "assetsByChunkName": {
+        "main": [
+            "main.js"
+        ]
+    },
+    "assets": [
+        {
+            "type": "asset",
+            "name": "main.js",
+            "size": 0,
+            "emitted": false,
+            "comparedForEmit": false,
+            "cached": true,
+            "info": {
+                "javascriptModule": false,
+                "minimized": true
+            },
+            "chunkNames": [
+                "main"
+            ],
+            "chunkIdHints": [],
+            "auxiliaryChunkNames": [],
+            "auxiliaryChunkIdHints": [],
+            "related": {},
+            "chunks": [
+                179
+            ],
+            "auxiliaryChunks": [],
+            "isOverSizeLimit": false
+        }
+    ],
+    "chunks": [
+        {
+            "rendered": true,
+            "initial": true,
+            "entry": true,
+            "recorded": false,
+            "size": 0,
+            "sizes": {},
+            "names": [
+                "main"
+            ],
+            "idHints": [],
+            "runtime": [
+                "main"
+            ],
+            "files": [
+                "main.js"
+            ],
+            "auxiliaryFiles": [],
+            "hash": "c04a2eefd2a3b2f32fce",
+            "childrenByOrder": {},
+            "id": 179,
+            "siblings": [],
+            "parents": [],
+            "children": [],
+            "modules": [],
+            "origins": [
+                {
+                    "module": "",
+                    "moduleIdentifier": "",
+                    "moduleName": "",
+                    "loc": "main",
+                    "request": "./src"
+                }
+            ]
+        }
+    ],
+    "modules": [],
+    "entrypoints": {
+        "main": {
+            "name": "main",
+            "chunks": [
+                179
+            ],
+            "assets": [
+                {
+                    "name": "main.js"
+                }
+            ],
+            "filteredAssets": 0,
+            "assetsSize": null,
+            "auxiliaryAssets": [],
+            "filteredAuxiliaryAssets": 0,
+            "auxiliaryAssetsSize": 0,
+            "children": {},
+            "childAssets": {},
+            "isOverSizeLimit": false
+        }
+    },
+    "namedChunkGroups": {
+        "main": {
+            "name": "main",
+            "chunks": [
+                179
+            ],
+            "assets": [
+                {
+                    "name": "main.js"
+                }
+            ],
+            "filteredAssets": 0,
+            "assetsSize": null,
+            "auxiliaryAssets": [],
+            "filteredAuxiliaryAssets": 0,
+            "auxiliaryAssetsSize": 0,
+            "children": {},
+            "childAssets": {},
+            "isOverSizeLimit": false
+        }
+    },
+    "errors": [
+        {
+            "loc": "main",
+            "message": "Module not found: Error: Can't resolve './src' in '/workspaces/ssr/common'",
+            "details": "resolve './src' in '/workspaces/ssr/common'\n  using description file: /workspaces/ssr/common/package.json (relative path: .)\n    Field 'browser' doesn't contain a valid alias configuration\n    using description file: /workspaces/ssr/common/package.json (relative path: ./src)\n      no extension\n        Field 'browser' doesn't contain a valid alias configuration\n        /workspaces/ssr/common/src doesn't exist\n      .js\n        Field 'browser' doesn't contain a valid alias configuration\n        /workspaces/ssr/common/src.js doesn't exist\n      .json\n        Field 'browser' doesn't contain a valid alias configuration\n        /workspaces/ssr/common/src.json doesn't exist\n      .wasm\n        Field 'browser' doesn't contain a valid alias configuration\n        /workspaces/ssr/common/src.wasm doesn't exist\n      as directory\n        /workspaces/ssr/common/src doesn't exist",
+            "stack": "ModuleNotFoundError: Module not found: Error: Can't resolve './src' in '/workspaces/ssr/common'\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/Compilation.js:2013:28\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/NormalModuleFactory.js:795:13\n    at eval (eval at create (/workspaces/ssr/.yarn/cache/tapable-npm-2.2.1-8cf5ff3039-3b7a1b4d86.zip/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:10:1)\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/NormalModuleFactory.js:275:22\n    at eval (eval at create (/workspaces/ssr/.yarn/cache/tapable-npm-2.2.1-8cf5ff3039-3b7a1b4d86.zip/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:9:1)\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/NormalModuleFactory.js:431:22\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/NormalModuleFactory.js:124:11\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/NormalModuleFactory.js:667:25\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/NormalModuleFactory.js:852:8\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/NormalModuleFactory.js:972:5"
+        }
+    ],
+    "errorsCount": 1,
+    "warnings": [
+        {
+            "message": "configuration\nThe 'mode' option has not been set, webpack will fallback to 'production' for this value.\nSet 'mode' option to 'development' or 'production' to enable defaults for each environment.\nYou can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/",
+            "stack": "NoModeWarning: configuration\nThe 'mode' option has not been set, webpack will fallback to 'production' for this value.\nSet 'mode' option to 'development' or 'production' to enable defaults for each environment.\nYou can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/WarnNoModeSetPlugin.js:20:30\n    at Hook.eval [as call] (eval at create (/workspaces/ssr/.yarn/cache/tapable-npm-2.2.1-8cf5ff3039-3b7a1b4d86.zip/node_modules/tapable/lib/HookCodeFactory.js:19:10), <anonymous>:21:1)\n    at Hook.CALL_DELEGATE [as _call] (/workspaces/ssr/.yarn/cache/tapable-npm-2.2.1-8cf5ff3039-3b7a1b4d86.zip/node_modules/tapable/lib/Hook.js:14:14)\n    at Compiler.newCompilation (/workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/Compiler.js:1108:30)\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/Compiler.js:1153:29\n    at Hook.eval [as callAsync] (eval at create (/workspaces/ssr/.yarn/cache/tapable-npm-2.2.1-8cf5ff3039-3b7a1b4d86.zip/node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)\n    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (/workspaces/ssr/.yarn/cache/tapable-npm-2.2.1-8cf5ff3039-3b7a1b4d86.zip/node_modules/tapable/lib/Hook.js:18:14)\n    at Compiler.compile (/workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/Compiler.js:1148:28)\n    at /workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/Compiler.js:524:12\n    at Compiler.readRecords (/workspaces/ssr/.yarn/__virtual__/webpack-virtual-911952be7e/0/cache/webpack-npm-5.67.0-77afb9c06d-a7f810a5e1.zip/node_modules/webpack/lib/Compiler.js:973:5)"
+        }
+    ],
+    "warningsCount": 1,
+    "children": []
+}
