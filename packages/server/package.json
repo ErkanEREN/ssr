@@ -1,6 +1,5 @@
 {
-  "name": "server",
-  "sub": "server",
+  "name": "@tomi/server",
   "scripts": {
     "build": "rm -Rf ../../build/server && NODE_ENV=production yarn build-webpack",
     "build-dev": "rm -Rf ../../build/server && PACKAGE_NAME=$npm_package_name yarn d:webpack",
@@ -8,19 +7,20 @@
     "analyze-webpack": "PACKAGE_NAME=$npm_package_name yarn a:webpack"
   },
   "dependencies": {
-    "@emotion/cache": "^11.7.1",
-    "@emotion/react": "^11.7.1",
-    "@emotion/server": "^11.4.0",
-    "@emotion/styled": "^11.6.0",
+    "@emotion/cache": "^11.10.5",
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.5",
     "@loadable/component": "5.15.2",
     "@loadable/server": "^5.15.2",
-    "@mui/icons-material": "^5.3.1",
-    "@mui/material": "^5.3.1",
-    "core-js": "^3.20.3",
+    "@mui/icons-material": "^5.10.15",
+    "@mui/material": "^5.10.15",
+    "@tomi/client": "workspace:packages/client",
+    "core-js": "^3.26.1",
     "cors": "^2.8.5",
-    "express": "^4.17.2",
-    "mongoose": "^6.1.8",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "express": "^4.18.2",
+    "mongoose": "^6.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

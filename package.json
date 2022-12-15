@@ -1,16 +1,16 @@
 {
-  "name": "reaxpresst",
+  "name": "tomi",
   "packageManager": "yarn@3.1.0",
   "private": true,
   "workspaces": [
     "packages/*",
-    "common"
+    "dev"
   ],
   "scripts": {
     "build": "(rm -Rf ./build || 1) && yarn workspaces foreach -pti run build",
     "start": "NODE_ENV=production yarn node build/server/server-bundle-*.js",
-    "build:dev": "yarn exec rm -rf common/build || 1 && yarn workspace @workspace/common webpack --env development --config dev.js",
-    "start:dev": "NODE_ENV=development yarn workspace @workspace/common node build/server/server-bundle.js",
+    "build:dev": "yarn exec rm -rf common/build || 1 && yarn workspace @workspace/common node dev.js",
+    "start:dev": "NODE_ENV=development yarn workspace @tomi/dev node --trace-warnings ./dev.js",
     "analyze": "(rm -Rf ./build || 1) && NODE_ENV=development yarn workspaces foreach -pti run -T analyze-webpack",
     "analyze:server": "yarn workspace @workspace/common webpack --json --config dev.js > common/srv.json && yarn dlx webpack-bundle-analyzer common/srv.json",
     "analyze:client": "yarn dlx webpack-bundle-analyzer common/server.json"

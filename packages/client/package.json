@@ -1,20 +1,19 @@
 {
-  "name": "client",
+  "name": "@tomi/client",
   "scripts": {
     "build": "rm -Rf ../../build/public && PACKAGE_NAME=$npm_package_name yarn g:webpack",
     "build-dev": "rm -Rf ../../build/public && PACKAGE_NAME=$npm_package_name yarn d:webpack",
     "analyze-webpack": "PACKAGE_NAME=$npm_package_name yarn a:webpack"
   },
   "dependencies": {
-    "@emotion/cache": "^11.7.1",
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
+    "@emotion/cache": "^11.10.5",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@loadable/component": "5.15.2",
-    "@mui/icons-material": "^5.3.1",
-    "@mui/material": "^5.3.1",
-    "@workspace/common": "workspace:common",
-    "core-js": "^3.20.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@mui/icons-material": "^5.10.15",
+    "@mui/material": "^5.10.15",
+    "core-js": "^3.26.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

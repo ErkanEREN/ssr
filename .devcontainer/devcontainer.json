@@ -5,7 +5,7 @@
 	"name": "ErkanEREN/ssr",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "ssr-server",
-	"workspaceFolder": "/workspaces/ssr",
+	"workspaceFolder": "/workspaces",
 
 	// Configure tool-specific properties.
 	"customizations": {
