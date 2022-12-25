@@ -1,0 +1,23 @@
+{
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "debug.javascript.automaticallyTunnelRemoteServer": false,
+  "debug.javascript.breakOnConditionalError": true,
+  "debug.javascript.codelens.npmScripts": "all",
+  "debug.javascript.pickAndAttachOptions": {
+    "showAsyncStacks": true,
+    "outputCapture": "std",
+    "sourceMaps": true,
+    "trace": true
+  },
+  "debug.javascript.terminalOptions": {
+    "autoAttachChildProcesses": true,
+    "localRoot": "/workspaces/ssr/"
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "npm.enableRunFromFolder": true,
+  "npm.packageManager": "yarn",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib"
+}

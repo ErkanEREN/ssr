@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "arcanis.vscode-zipfs",
+    "ms-edgedevtools.vscode-edge-devtools",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+	"compilerOptions": {
+			"jsx": "react",
+			"strictNullChecks": true,
+			"strictFunctionTypes": true,
+			"module": "commonjs",
+			// "target": "esnext",
+			"moduleResolution": "node",
+			"declaration": true,
+			// "outDir": "dist",
+		//   "skipLibCheck": true,
+			// "inlineSourceMap": true,
+			"checkJs": true,
+			"lib": [
+					"dom",
+					"dom.iterable",
+					"esnext",
+					"WebWorker",
+			],
+			"baseUrl": ".",
+			"composite": true,
+			"declarationMap": true,
+			"paths": {
+				"client": ["packages/client"],
+				"server": ["packages/server"]
+			},
+			"downlevelIteration": true,
+			"allowJs": true,
+			"skipLibCheck": true,
+			"esModuleInterop": true,
+			"allowSyntheticDefaultImports": true,
+			"strict": true,
+			"forceConsistentCasingInFileNames": true,
+			"resolveJsonModule": true,
+			"isolatedModules": true,
+			"noEmit": true,
+			"sourceMap": true,
+	},
+	"exclude": [
+			"node_modules",
+			"**/node_modules/*"
+	]
+}

@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  ssr-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # Update 'VARIANT' to pick an LTS version of Node.js: 18, 16, 14.
+        # Append -bullseye or -buster to pin to an OS version.
+        # Use -bullseye variants on local arm64/Apple Silicon.
+        VARIANT: 18-bullseye
+
+    environment:
+      PORT: ${DEFAULT_PORT:-9000}
+      # MONGO_CONNECTION_STRING: mongodb://${MONGO_USERNAME:-DEFAULT_MONGO_USERNAME}:${MONGO_PASSWORD:-DEFAULT_MONGO_PASSWORD}@ssr-db:27017/${MONGO_DATABASE:-reaxpresst}?authSource=admin&authMechanism=SCRAM-SHA-256&readPreference=primary&ssl=false
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+    # command: yarn && yarn build:dev
+
+    # Uncomment the next line to use a non-root user for all processes.
+    user: node
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+    # ports: 
+    #   - localhost:9000:ssr.lemur-tortoise.ts.net:80
+    container_name: ssr-server
+    hostname: ssr-server
+    domainname: ssr-server
+    # ports:
+    #   - 3000:9000
