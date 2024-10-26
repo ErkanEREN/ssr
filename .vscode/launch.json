@@ -20,7 +20,7 @@
 			// "webRoot": "/workspaces/ssr/dist/public",
 			// // "webRoot": "${workspaceFolder}/dist/public",
 			"server": {
-				"program": "start:dev",
+				"program": "dev",
 				"runtimeExecutable": "yarn"
 			},
 			// "presentation": {

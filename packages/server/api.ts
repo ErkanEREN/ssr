@@ -3,12 +3,18 @@
 // import ssrRoute from './ssr-route';
 
 const api = {
-    j: {
-        method: 'get',
-        handler: (req, res) => {
-            res.send({data: "jello world", r: {...req}})
-        }
-    }
+	jqq: {
+			method: 'get',
+			handler: (req, res) => {
+					res.send({data: "jello world", r: {...req}})
+			}
+	},
+	jq: {
+			method: 'get',
+			handler: (req, res) => {
+					res.send({data: "jello world", r: {...req}})
+			}
+	}
 }
 
 // app.use('/public', express.static(path.join(__dirname, '../../build/public')))

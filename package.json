@@ -7,16 +7,11 @@
   ],
   "scripts": {
     "build": "(rm -Rf ./build || 1) && yarn workspaces foreach -pti run build",
-    "start": "NODE_ENV=production yarn node build/server/server-bundle-*.js",
-    "build:dev": "yarn exec rm -rf common/build || 1 && yarn workspace @workspace/common node dev.js",
-    "start:dev": "NODE_ENV=development yarn workspace tomi node --trace-warnings ./dev/dev.js",
-    "analyze": "(rm -Rf ./build || 1) && NODE_ENV=development yarn workspaces foreach -pti run -T analyze-webpack",
-    "analyze:server": "yarn workspace @workspace/common webpack --json --config dev.js > common/srv.json && yarn dlx webpack-bundle-analyzer common/srv.json",
-    "analyze:client": "yarn dlx webpack-bundle-analyzer common/server.json"
+    "ins": "yarn && yarn workspaces foreach -pti install",
+    "dev": "NODE_ENV=development yarn workspace tomi node --trace-warnings ./dev/dev.js",
+    "update-browserslist-db": "yarn dlx update-browserslist-db@latest"
   },
   "dependencies": {
-    "@pnp/nodejs-commonjs": "^2.15.0",
-    "@pnp/sp-commonjs": "^2.15.0",
     "@tomi/client": "workspace:packages/client",
     "@tomi/server": "workspace:packages/server"
   },

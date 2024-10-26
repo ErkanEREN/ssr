@@ -1,4 +1,7 @@
 
+// https://github.com/mui/material-ui/tree/master/examples/material-ui-express-ssr
+
+
 const base = (name, { target, entry, babel, ignoreWarnings = [], output, plugins = [], resolve }) => {
 	const LoadablePlugin = require("@loadable/webpack-plugin")
 	const MiniCssExtractPlugin = require("mini-css-extract-plugin")
@@ -122,7 +125,7 @@ const scriptRunner = (
 					cachedData
 				}
 				const vm = require("node:vm");
-				const contents = memfs.readFileSync("/workspaces/ssr/dist/" + filename);
+				const contents = ufs.readFileSync("/workspaces/ssr/dist/" + filename);
 				const script = new vm.Script(
 					contents.toString(),
 					{
@@ -173,6 +176,7 @@ const scriptRunner = (
 				iRan.script.app({
 					use: (a, b) => console.debug("appuse [a:", a, "||b:", b),
 					get: (a, b) => console.debug("appget [a:", a, "||b:", b)
+
 				}
 				)
 				// const exportedMaginc = runabbleScript.global.magic
@@ -218,11 +222,11 @@ const wpObj = ((entryDir, dstDir) => ({
 				// }
 			},
 			ignoreWarnings: [
-				{
-					//bundle express but do not show the warning
-					module: /.*express\/lib\/view\.js.*/,
-					message: /Critical dependency: the request of a dependency is an expression/,
-				},
+				// {
+				// 	//bundle express but do not show the warning
+				// 	module: /.*express\/lib\/view\.js.*/,
+				// 	message: /Critical dependency: the request of a dependency is an expression/,
+				// },
 			],
 			plugins: [
 				// new ModuleFederationPlugin({
@@ -366,6 +370,6 @@ const wpObj = ((entryDir, dstDir) => ({
 const compiler = webpack(
 	wpObj.config, wpObj.callback
 );
-compiler.outputFileSystem = memfs
+// compiler.outputFileSystem = memfs
 
 /**/

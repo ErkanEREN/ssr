@@ -17,21 +17,19 @@
 // );
 
 import api from './api';
-debugger
-globalThis.script.app = appHttp => {
-    debugger
-    console.debug('prem mid',appHttp.routes)
 
-    appHttp.use('/api/*', api)
+globalThis.script.app = appHttp => {
+    console.log('prem mid',appHttp)
+
+    appHttp.use('/apai/*', api)
 
     appHttp.get('/', (req, res) => {
-        debugger
-        res.send('Hello World!')
+              res.send('Hello World!')
     })
-    appHttp.get('/j', (req, res) => {
+    appHttp.get('/jeaa', (req, res) => {
         res.send('jello World!')
     })
-    console.debug('post mid',appHttp.routes)
+    console.log('post mid',appHttp)
     return ({
         appHttp,
         routes: { api }

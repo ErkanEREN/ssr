@@ -7,7 +7,6 @@
     "analyze-webpack": "PACKAGE_NAME=$npm_package_name yarn a:webpack"
   },
   "dependencies": {
-    "@tomi/server": "workspace:packages/server",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongoose": "^6.8.1"
