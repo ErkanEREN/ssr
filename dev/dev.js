@@ -3,8 +3,6 @@
 
 
 const base = (name, { target, entry, babel, ignoreWarnings = [], output, plugins = [], resolve }) => {
-	const LoadablePlugin = require("@loadable/webpack-plugin")
-	const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 	babel.presets	= babel.presets||[];
 	return webpack.config.getNormalizedWebpackOptions({
 		name,
@@ -43,20 +41,19 @@ const base = (name, { target, entry, babel, ignoreWarnings = [], output, plugins
 								...babel.plugins,
 								"@babel/plugin-proposal-class-properties",
 								"@babel/plugin-syntax-dynamic-import",
-								"@loadable/babel-plugin",
 							],
 						},
 					},
 				},
-				{
-					test: /\.css$/,
-					use: [
-						{
-							loader: MiniCssExtractPlugin.loader,
-						},
-						"css-loader",
-					],
-				},
+				// {
+				// 	test: /\.css$/,
+				// 	use: [
+				// 		{
+				// 			loader: MiniCssExtractPlugin.loader,
+				// 		},
+				// 		"css-loader",
+				// 	],
+				// },
 			],
 		},
 		optimization: {
@@ -91,8 +88,7 @@ const base = (name, { target, entry, babel, ignoreWarnings = [], output, plugins
 			stdin: true,
 		},
 		plugins: [
-			...plugins,
-			new LoadablePlugin()
+			...plugins
 		]
 	})
 }
