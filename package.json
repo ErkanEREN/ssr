@@ -1,13 +1,13 @@
 {
   "name": "tomi",
-  "packageManager": "yarn@3.1.0",
+  "packageManager": "yarn@4.5.1",
   "private": true,
   "workspaces": [
     "./packages/*"
   ],
   "scripts": {
-    "build": "(rm -Rf ./build || 1) && yarn workspaces foreach -pti run build",
-    "ins": "yarn && yarn workspaces foreach -pti install",
+    "build": "(rm -Rf ./build || 1) && yarn workspaces foreach -ptiW run build",
+    "ins": "yarn && yarn workspaces foreach -ptiW install",
     "dev": "NODE_ENV=development yarn workspace tomi node --trace-warnings ./dev/dev.js",
     "update-browserslist-db": "yarn dlx update-browserslist-db@latest"
   },
@@ -16,30 +16,22 @@
     "@tomi/server": "workspace:packages/server"
   },
   "devDependencies": {
-    "@babel/cli": "^7.20.7",
-    "@babel/core": "^7.20.7",
-    "@babel/node": "^7.20.7",
+    "@babel/core": "^7.26.0",
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.20.2",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.18.6",
-    "@loadable/babel-plugin": "5.13.2",
-    "@loadable/webpack-plugin": "5.15.2",
-    "@tomi/client": "workspace:packages/client",
-    "@tomi/server": "workspace:packages/server",
-    "@types/loadable__webpack-plugin": "^5.7.3",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/babel__core": "^7",
+    "@types/babel__preset-env": "^7",
     "@types/node": "^18.11.18",
-    "babel-loader": "^9.1.0",
-    "babel-plugin-import": "^1.13.5",
-    "css-loader": "^6.7.3",
+    "babel-loader": "^9.2.1",
+    "babel-plugin-import": "^1.13.8",
     "fs-monkey": "^1.0.3",
     "memfs": "^3.4.12",
-    "mini-css-extract-plugin": "^2.7.2",
     "typescript": "^4.9.4",
     "unionfs": "^4.4.0",
     "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-cli": "^5.0.1"
   }
 }

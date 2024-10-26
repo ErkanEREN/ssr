@@ -1,6 +1,4 @@
 import React from 'react'
-import loadable from '@loadable/component';
-// import loadable from '@loadable/component'
 const YetOtherComponent= loadable(() => import("./components/YetOtherComponent"));
 const OtherComponent= loadable(() => import("./components/OtherComponent"));
 const App = () =>{
