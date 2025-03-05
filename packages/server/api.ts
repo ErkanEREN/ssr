@@ -2,20 +2,22 @@
 // import path from 'path'
 // import ssrRoute from './ssr-route';
 
-const api = {
-	jqq: {
+const api = [
+	{
 			method: 'get',
-			handler: (req, res) => {
-					res.send({data: "jello world", r: {...req}})
+			route: '/',
+			handle: (req, res) => {
+					res.send({data: "hello world"})
 			}
 	},
-	jq: {
+	{
 			method: 'get',
-			handler: (req, res) => {
-					res.send({data: "jello world", r: {...req}})
+			route: '/j',
+			handle: (req, res) => {
+					res.send({data: "jello world"})
 			}
 	}
-}
+]
 
 // app.use('/public', express.static(path.join(__dirname, '../../build/public')))
 // const port = process.env.PORT || 9000

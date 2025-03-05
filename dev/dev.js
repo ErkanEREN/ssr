@@ -1,5 +1,12 @@
 
 // https://github.com/mui/material-ui/tree/master/examples/material-ui-express-ssr
+const express = require('express')
+const application = express()
+const port = 9000
+
+application.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
 
 
 const base = (name, { target, entry, babel, ignoreWarnings = [], output, plugins = [], resolve }) => {
@@ -130,6 +137,7 @@ const scriptRunner = (
 				);
 				const context = {
 					["script"]: script,
+					["app"]: application,
 					// filename: "/workspaces/ssr/packages/"+ filename,
 					// __dirname: "/workspaces/ssr/packages/",
 					// filename: "/packages/"+ filename
@@ -168,13 +176,7 @@ const scriptRunner = (
 					// ...
 				}
 
-				const iRan = (await prepareScript())();
-				iRan.script.app({
-					use: (a, b) => console.debug("appuse [a:", a, "||b:", b),
-					get: (a, b) => console.debug("appget [a:", a, "||b:", b)
-
-				}
-				)
+				return (await prepareScript())();
 				// const exportedMaginc = runabbleScript.global.magic
 				// exportedMaginc({
 				//     use: (a, b) => console.debug("appuse [a:", a, "||b:", b),
@@ -207,8 +209,8 @@ const wpObj = ((entryDir, dstDir) => ({
 				presetEnv: {
 					targets: { node: "current" },
 					modules: false,
-					useBuiltIns: "usage",
-					corejs: { version: "3.8", proposals: true },
+					// useBuiltIns: "usage",
+					// corejs: { version: "3.8", proposals: true },
 				},
 				plugins: [],
 			},
@@ -308,9 +310,9 @@ const wpObj = ((entryDir, dstDir) => ({
 				presetEnv: {
 					modules: false,
 					// useBuiltIns: "entry", //this is actual client build wanna try other
-					useBuiltIns: "usage",
+					// useBuiltIns: "usage",
 					targets: [">0.2%", "not dead", "not op_mini all"],
-					corejs: { version: "3.8", proposals: true },
+					// corejs: { version: "3.8", proposals: true },
 				},
 				plugins: [
 					[/*here*/

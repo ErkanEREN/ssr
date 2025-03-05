@@ -50,6 +50,8 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:18.19.58"],\
           ["babel-loader", "virtual:3d2f561af129f93165c3b9cc61546c251d354ea79566e5c2b72ad1ca419effdae0dc8f00425ef6e4ddec3033cba51659abcb81759c6224b586af8957b79c6604#npm:9.2.1"],\
           ["babel-plugin-import", "npm:1.13.8"],\
+          ["core-js", "npm:3.8.3"],\
+          ["express", "npm:4.21.1"],\
           ["fs-monkey", "npm:1.0.6"],\
           ["memfs", "npm:3.5.3"],\
           ["typescript", "patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"],\
@@ -4099,8 +4101,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/server/",\
         "packageDependencies": [\
           ["@tomi/server", "workspace:packages/server"],\
-          ["cors", "npm:2.8.5"],\
-          ["express", "npm:4.21.1"],\
           ["mongoose", "npm:6.13.3"]\
         ],\
         "linkType": "SOFT"\
@@ -5086,6 +5086,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["core-js", [\
+      ["npm:3.8.3", {\
+        "packageLocation": "./.yarn/unplugged/core-js-npm-3.8.3-f6bf459c9f/node_modules/core-js/",\
+        "packageDependencies": [\
+          ["core-js", "npm:3.8.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["core-js-compat", [\
       ["npm:3.38.1", {\
         "packageLocation": "./.yarn/cache/core-js-compat-npm-3.38.1-4114633af1-4e2f219354.zip/node_modules/core-js-compat/",\
@@ -5101,17 +5110,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/core-util-is-npm-1.0.3-ca74b76c90-9de8597363.zip/node_modules/core-util-is/",\
         "packageDependencies": [\
           ["core-util-is", "npm:1.0.3"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["cors", [\
-      ["npm:2.8.5", {\
-        "packageLocation": "./.yarn/cache/cors-npm-2.8.5-c9935a2d12-66e88e08ed.zip/node_modules/cors/",\
-        "packageDependencies": [\
-          ["cors", "npm:2.8.5"],\
-          ["object-assign", "npm:4.1.1"],\
-          ["vary", "npm:1.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -7223,6 +7221,8 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:18.19.58"],\
           ["babel-loader", "virtual:3d2f561af129f93165c3b9cc61546c251d354ea79566e5c2b72ad1ca419effdae0dc8f00425ef6e4ddec3033cba51659abcb81759c6224b586af8957b79c6604#npm:9.2.1"],\
           ["babel-plugin-import", "npm:1.13.8"],\
+          ["core-js", "npm:3.8.3"],\
+          ["express", "npm:4.21.1"],\
           ["fs-monkey", "npm:1.0.6"],\
           ["memfs", "npm:3.5.3"],\
           ["typescript", "patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"],\

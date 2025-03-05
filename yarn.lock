@@ -2769,8 +2769,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tomi/server@workspace:packages/server"
   dependencies:
-    cors: "npm:^2.8.5"
-    express: "npm:^4.18.2"
     mongoose: "npm:^6.8.1"
   languageName: unknown
   linkType: soft
@@ -3531,20 +3529,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:3.8":
+  version: 3.8.3
+  resolution: "core-js@npm:3.8.3"
+  checksum: 10/728f2075d65ec3424c4d860877c4840fe2e4aada46cad349528006d2a52b7333cb8babb10eea823726781555df8eebef4e98539da9bdbcdfa8d73bb3d67fd854
+  languageName: node
+  linkType: hard
+
 "core-util-is@npm:~1.0.0":
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
   checksum: 10/9de8597363a8e9b9952491ebe18167e3b36e7707569eed0ebf14f8bba773611376466ae34575bca8cfe3c767890c859c74056084738f09d4e4a6f902b2ad7d99
-  languageName: node
-  linkType: hard
-
-"cors@npm:^2.8.5":
-  version: 2.8.5
-  resolution: "cors@npm:2.8.5"
-  dependencies:
-    object-assign: "npm:^4"
-    vary: "npm:^1"
-  checksum: 10/66e88e08edee7cbce9d92b4d28a2028c88772a4c73e02f143ed8ca76789f9b59444eed6b1c167139e76fa662998c151322720093ba229f9941365ada5a6fc2c6
   languageName: node
   linkType: hard
 
@@ -4544,7 +4539,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:^4, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
+"object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: 10/fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
@@ -5362,6 +5357,8 @@ __metadata:
     "@types/node": "npm:^18.11.18"
     babel-loader: "npm:^9.2.1"
     babel-plugin-import: "npm:^1.13.8"
+    core-js: "npm:3.8"
+    express: "npm:^4.18.2"
     fs-monkey: "npm:^1.0.3"
     memfs: "npm:^3.4.12"
     typescript: "npm:^4.9.4"
@@ -5524,7 +5521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vary@npm:^1, vary@npm:~1.1.2":
+"vary@npm:~1.1.2":
   version: 1.1.2
   resolution: "vary@npm:1.1.2"
   checksum: 10/31389debef15a480849b8331b220782230b9815a8e0dbb7b9a8369559aed2e9a7800cd904d4371ea74f4c3527db456dc8e7ac5befce5f0d289014dbdf47b2242
