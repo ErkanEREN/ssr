@@ -8,7 +8,6 @@ application.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
 
-
 const base = (name, { target, entry, babel, ignoreWarnings = [], output, plugins = [], resolve }) => {
 	babel.presets	= babel.presets||[];
 	return webpack.config.getNormalizedWebpackOptions({
@@ -30,6 +29,11 @@ const base = (name, { target, entry, babel, ignoreWarnings = [], output, plugins
 							comments: true,
 							presets: [
 								...babel.presets,
+								[
+									"@babel/preset-react", {
+
+									}
+								],
 								[
 									"@babel/preset-typescript",
 									{
@@ -102,20 +106,20 @@ const base = (name, { target, entry, babel, ignoreWarnings = [], output, plugins
 
 
 
-// const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-// const deps = require("../packages/server/package.json").dependencies;
 const webpack = require("webpack");
+const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
+const deps = require("../packages/client/package.json").dependencies;
 
 //look to deprecate fs bs
-const { fs: memfs } = require("memfs");
 const fs = require("fs");
-const { ufs } = require("unionfs");
-const { patchFs, patchRequire } = require("fs-monkey");
-ufs
-	.use(memfs)
-	.use({ ...fs });
-patchFs(ufs);
-patchRequire(ufs);
+// const { fs: memfs } = require("memfs");
+// const { ufs } = require("unionfs");
+// const { patchFs, patchRequire } = require("fs-monkey");
+// ufs
+// 	.use(memfs)
+// 	.use({ ...fs });
+// patchFs(ufs);
+// patchRequire(ufs);
 
 const scriptRunner = (
 	(
@@ -128,7 +132,7 @@ const scriptRunner = (
 					cachedData
 				}
 				const vm = require("node:vm");
-				const contents = ufs.readFileSync("/workspaces/ssr/dist/" + filename);
+				const contents = fs.readFileSync("/workspaces/ssr/dist/" + filename);
 				const script = new vm.Script(
 					contents.toString(),
 					{
@@ -137,11 +141,7 @@ const scriptRunner = (
 				);
 				const context = {
 					["script"]: script,
-					["app"]: application,
-					// filename: "/workspaces/ssr/packages/"+ filename,
-					// __dirname: "/workspaces/ssr/packages/",
-					// filename: "/packages/"+ filename
-					// filename: "/workspaces/ssr/packages/" + filename,
+					["app"]: application
 				}
 				const contextified = vm.createContext(context);
 				options.cachedData = script.cachedData = script.createCachedData();
@@ -215,9 +215,9 @@ const wpObj = ((entryDir, dstDir) => ({
 				plugins: [],
 			},
 			resolve: {
-				// alias: {
-				//     ["node:fs"]: "memfs"
-				// }
+				alias: {
+				    // ["node:fs"]: "memfs"
+				}
 			},
 			ignoreWarnings: [
 				// {
@@ -227,68 +227,64 @@ const wpObj = ((entryDir, dstDir) => ({
 				// },
 			],
 			plugins: [
-				// new ModuleFederationPlugin({
-				//     name: "main",
-				//     library: { type: "commonjs-module" },
-				//     filename: "main.js",
-				//     remotes: {
-				//         "remote@server": "http://localhost:9000/federated/serverRoutes.js",
-				//     },
-				// }),
-				// new ModuleFederationPlugin({
-				//     name: "remote@server",
-				//     library: { type: "commonjs-module" },
-				//     filename: "federated/serverRoutes.js",
-				//     exposes: {
-				//         "./Api":
-				//             "../packages/server/api.js",
+				new ModuleFederationPlugin({
+				    name: "main",
+				    filename: "public/federated/route.js",
+				    remotes: {
+				        aTserver: "aTserver@public/federated/serverRoutes.js",
+				    },
+				}),
+				new ModuleFederationPlugin({
+				    name: "aTserver",
+				    library: { type: "commonjs-module" },
+				    filename: "public/federated/serverRoutes.js",
+				    exposes: {
+				        "./Api": entryDir + "/server/api.ts",
+				        // "./ServerRenderer": entryDir + "/client/serverRenderer.tsx",
+				    },
+				    remotes: {
+				        // "remote@view": "http://localhost:9000/federated/view.js",
+				    },
+				    shared: {
+				        "react": { requiredVersion: deps["react"], singleton: true},
+				        "react-dom": { requiredVersion: deps["react-dom"], singleton: true},
+				        "@mui/material": { requiredVersion: deps["@mui/material"], singleton: true},
+				        "@mui/icons": { requiredVersion: deps["@mui/icons"], singleton: true},
+				        "@emotion/cache": { requiredVersion: deps["@emotion/cache"], singleton: true},
+				        "@emotion/react": { requiredVersion: deps["@emotion/react"], singleton: true},
+				        "@emotion/styled": { requiredVersion: deps["@emotion/styled"], singleton: true},
+				        "@loadable/component": { requiredVersion: deps["@loadable/component"], singleton: true},
+				    },
+				}),
+				new ModuleFederationPlugin({
+				    name: "view",
+				    library: { type: "commonjs-module" },
+				    filename: "public/federated/view.js",
+				    exposes: {
+				        "./App":
+				            entryDir + "/client/App.tsx",
 
-				//         "./ServerRenderer":
-				//             "../packages/server/serverRenderer.js",
-				//     },
-				//     remotes: {
-				//         "remote@view": "http://localhost:9000/federated/view.js",
-				//     },
-				//     shared: {
-				//         "react": { requiredVersion: deps["react"], singleton: true},
-				//         "react-dom": { requiredVersion: deps["react-dom"], singleton: true},
-				//         "@mui/material": { requiredVersion: deps["@mui/material"], singleton: true},
-				//         "@mui/icons": { requiredVersion: deps["@mui/icons"], singleton: true},
-				//         "@emotion/cache": { requiredVersion: deps["@emotion/cache"], singleton: true},
-				//         "@emotion/react": { requiredVersion: deps["@emotion/react"], singleton: true},
-				//         "@emotion/styled": { requiredVersion: deps["@emotion/styled"], singleton: true},
-				//         "@loadable/component": { requiredVersion: deps["@loadable/component"], singleton: true},
-				//     },
-				// }),
-				// new ModuleFederationPlugin({
-				//     name: "remote@view",
-				//     library: { type: "commonjs-module" },
-				//     filename: "federated/view.js",
-				//     exposes: {
-				//         "./App":
-				//             "../packages/client/App.js",
+				        "./Theme":
+				            entryDir + "/client/theme.tsx",
 
-				//         "./Theme":
-				//             "../common/theme.js",
+				        "./ServerApp":
+				            entryDir + "/client/serverRenderer.tsx",
+				    },
+				    // remotes: {
+				    //     view: "http://localhost:9000/federated/view.js",
+				    // },
 
-				//         "./Cache":
-				//             "../common/createEmotionCache.js",
-				//     },
-				//     // remotes: {
-				//     //     view: "http://localhost:9000/federated/view.js",
-				//     // },
-
-				//     shared: {
-				//         "react": { requiredVersion: deps["react"], singleton: true},
-				//         "react-dom": { requiredVersion: deps["react-dom"], singleton: true},
-				//         "@mui/material": { requiredVersion: deps["@mui/material"], singleton: true},
-				//         "@mui/icons": { requiredVersion: deps["@mui/icons"], singleton: true},
-				//         "@emotion/cache": { requiredVersion: deps["@emotion/cache"], singleton: true},
-				//         "@emotion/react": { requiredVersion: deps["@emotion/react"], singleton: true},
-				//         "@emotion/styled": { requiredVersion: deps["@emotion/styled"], singleton: true},
-				//         "@loadable/component": { requiredVersion: deps["@loadable/component"], singleton: true},
-				//     },
-				// }),
+				    shared: {
+				        "react": { requiredVersion: deps["react"], singleton: true},
+				        "react-dom": { requiredVersion: deps["react-dom"], singleton: true},
+				        "@mui/material": { requiredVersion: deps["@mui/material"], singleton: true},
+				        "@mui/icons": { requiredVersion: deps["@mui/icons"], singleton: true},
+				        "@emotion/cache": { requiredVersion: deps["@emotion/cache"], singleton: true},
+				        "@emotion/react": { requiredVersion: deps["@emotion/react"], singleton: true},
+				        "@emotion/styled": { requiredVersion: deps["@emotion/styled"], singleton: true},
+				        "@loadable/component": { requiredVersion: deps["@loadable/component"], singleton: true},
+				    },
+				}),
 				// new webpack.HotModuleReplacementPlugin(),
 				// new HtmlWebpackPlugin({
 				//   title: "Hot Module Replacement",
@@ -334,13 +330,7 @@ const wpObj = ((entryDir, dstDir) => ({
 						"icons",
 					],
 				],
-				presets: [
-					[
-						"@babel/preset-react", {
-
-						}
-					],
-				]
+				presets: []
 			},
 			resolve: {
 				alias: {
@@ -349,8 +339,8 @@ const wpObj = ((entryDir, dstDir) => ({
 			},
 			output: {
 				path: dstDir,
-				filename: "./public/client/web/[name].js",
-				chunkFilename: "./public/client/web/[name]-bundle.js",
+				filename: "./public/client/[name].js",
+				chunkFilename: "./public/client/[name]-bundle.js",
 				publicPath: dstDir + "/public"
 			},
 		}),
@@ -362,6 +352,7 @@ const wpObj = ((entryDir, dstDir) => ({
 )
 
 
+application.use('/public', express.static("/workspaces/ssr/dist/public"));
 // module.exports = wpObj.config
 // /*
 

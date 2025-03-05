@@ -16,6 +16,13 @@ const api = [
 			handle: (req, res) => {
 					res.send({data: "jello world"})
 			}
+	},
+	{
+			method: 'get',
+			route: '/k',
+			handle: (req, res) => {
+					res.send({data: "kello world"})
+			}
 	}
 ]
 
